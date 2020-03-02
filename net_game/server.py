@@ -17,9 +17,9 @@ s.listen(2) # left blank allows unlimited connections
 print("Waiting for a connection, Server Started")
 
 
-def threaded_client(conn)
+def threaded_client(conn):
     
-    reply = ""
+    reply = "192.168.1.115"
     while True:
         try:
             data = conn.recv(2048) # can resolve some errors by increasing this number
@@ -41,7 +41,7 @@ def threaded_client(conn)
 
 while True:
     conn, addr = s.accept()
-    print("Connected to:", addr)
+    print("Connected to: ", addr)
 
     start_new_thread(threaded_client, (conn,))
 
