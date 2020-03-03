@@ -1,5 +1,4 @@
-import socket
-from _thread import *
+import socket from _thread import *
 import sys
 
 server = ""
@@ -18,6 +17,8 @@ print("Waiting for a connection, Server Started")
 
 
 def threaded_client(conn):
+
+    conn.send(str.encode("Connected"))
     
     reply = "192.168.1.115"
     while True:
@@ -37,6 +38,9 @@ def threaded_client(conn):
         except:
             print("exept")
             break
+
+    print("Lost Connection")
+    conn.close()
 
 
 while True:
